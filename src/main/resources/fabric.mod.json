@@ -14,26 +14,29 @@
         "RazrCraft"
     ],
     "contact": {
-        "homepage": "https://www.curseforge.com/minecraft/mc-mods/rebrand",
+        "homepage": "https://modrinth.com/mod/rebrand",
         "sources": "https://github.com/kaylendog/rebrand/",
         "issues": "https://github.com/kaylendog/rebrand/issues"
     },
-    "icon": "assets/rebrand/icon.png",
     "license": "GPL-3.0-or-later",
+    "icon": "assets/rebrand/icon.png",
     "environment": "client",
     "entrypoints": {
-        "client": ["dog.kaylen.rebrand.RebrandClientMod"],
-        "modmenu": ["dog.kaylen.rebrand.modmenu.RebrandModMenu"]
+        "client": [
+            "dog.kaylen.rebrand.RebrandClientMod"
+        ],
+        "modmenu": [
+            "dog.kaylen.rebrand.modmenu.RebrandModMenu"
+        ]
     },
     "mixins": [
         "rebrand.mixins.json"
     ],
     "depends": {
-        "fabricloader": ">=0.14",
-        "minecraft": "1.20.1",
-        "java": ">=17"
+        "fabricloader": ">=${fabricloaderversion}",
+        "minecraft": "~${mcversion}"
     },
-    "suggests": {
-        "modmenu": ">=6"
+    "recommends": {
+        "modmenu": ">=${modmenuversion}"
     }
 }
