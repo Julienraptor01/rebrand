@@ -80,7 +80,6 @@ publishing {
 
 spotless {
     java {
-        eclipse()
         licenseHeader(
             "/*\n" +
             " * Copyright Kaylen Dart 2022\n" +
