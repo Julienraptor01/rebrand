@@ -11,42 +11,46 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class RebrandClientMod implements ClientModInitializer {
-	private final Logger logger = LogManager.getLogger("rebrand");
-	/**
-	 * Get the mod logger.
-	 * 
-	 * @return The mod logger.
-	 */
-	public Logger getLogger() {
-		return logger;
-	}
-	/**
-	 * The mod configuration.
-	 */
-	private RebrandModConfig config = new RebrandModConfig();
-	/**
-	 * Get the mod configuration.
-	 * 
-	 * @return The mod configuration.
-	 */
-	public RebrandModConfig getConfig() {
-		return config;
-	}
-	private static RebrandClientMod instance;
-	/**
-	 * Get the mod instance.
-	 * 
-	 * @return The mod instance.
-	 */
-	public static RebrandClientMod getInstance() {
-		return instance;
-	}
-	@Override
-	public void onInitializeClient() {
-		// set the singleton instance
-		instance = this;
-		// initialize the mod configuration
-		config = RebrandModConfigLoader.tryLoad();
-		this.logger.info("Rebrand initialized - brand on startup: '" + config.brandName + "'");
-	}
+    private static RebrandClientMod instance;
+    private final Logger logger = LogManager.getLogger("rebrand");
+    /**
+     * The mod configuration.
+     */
+    private RebrandModConfig config = new RebrandModConfig();
+
+    /**
+     * Get the mod instance.
+     *
+     * @return The mod instance.
+     */
+    public static RebrandClientMod getInstance() {
+        return instance;
+    }
+
+    /**
+     * Get the mod logger.
+     *
+     * @return The mod logger.
+     */
+    public Logger getLogger() {
+        return logger;
+    }
+
+    /**
+     * Get the mod configuration.
+     *
+     * @return The mod configuration.
+     */
+    public RebrandModConfig getConfig() {
+        return config;
+    }
+
+    @Override
+    public void onInitializeClient() {
+        // set the singleton instance
+        instance = this;
+        // initialize the mod configuration
+        config = RebrandModConfigLoader.tryLoad();
+        this.logger.info("Rebrand initialized - brand on startup: '" + config.brandName + "'");
+    }
 }

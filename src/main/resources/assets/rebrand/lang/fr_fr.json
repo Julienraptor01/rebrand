@@ -1,8 +1,10 @@
 {
-    "title.rebrand.config": "Configuration de Rebranding",
-    "category.rebrand.general": "Général",
-    "option.rebrand.enable": "Activer le Rebranding",
-    "option.rebrand.brandName": "Nom de marque personnalisé",
-    "tooltip.rebrand.enable": "Active ou désactive le Rebranding pour masquer le nom de marque de votre client.",
-    "tooltip.rebrand.brandName": "Le nom de marque personnalisé à envoyer aux serveurs multijoueurs lors de la connexion."
+  "title.rebrand.config": "Configuration de Rebrand",
+  "category.rebrand.general": "Général",
+  "option.rebrand.enable": "Activer Rebrand",
+  "option.rebrand.brandName": "Nom de marque personnalisé",
+  "tooltip.rebrand.enable": "Active ou désactive Rebrand pour masquer la marque de votre client.",
+  "tooltip.rebrand.brandName": "Le nom de marque personnalisé à envoyer aux serveurs multijoueurs lors de la connexion.",
+  "option.rebrand.ghostMode": "Activer le mode fantôme",
+  "tooltip.rebrand.ghostMode": "Active ou désactive le mode fantôme ce qui force le client à agir comme un client vanilla pendant la connexion. Ceci peut casser les serveurs moddés."
 }

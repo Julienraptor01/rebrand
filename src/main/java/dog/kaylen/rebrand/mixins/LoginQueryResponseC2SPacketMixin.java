@@ -6,7 +6,6 @@ package dog.kaylen.rebrand.mixins;
 
 import dog.kaylen.rebrand.RebrandClientMod;
 import dog.kaylen.rebrand.config.RebrandModConfig;
-import net.minecraft.network.PacketByteBuf;
 import net.minecraft.network.packet.c2s.login.LoginQueryResponseC2SPacket;
 import net.minecraft.network.packet.c2s.login.LoginQueryResponsePayload;
 import org.spongepowered.asm.mixin.Mixin;
@@ -16,17 +15,17 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LoginQueryResponseC2SPacket.class)
 public class LoginQueryResponseC2SPacketMixin {
-	@Inject(at = @At("TAIL"), method = "response()Lnet/minecraft/network/packet/c2s/login/LoginQueryResponsePayload;")
-	private void response(CallbackInfoReturnable<LoginQueryResponsePayload> info) {
-		// default to ghost mode if the mod is not initialized - shouldn't occur!
-		if (RebrandClientMod.getInstance() == null) {
-			info.setReturnValue(null);
-		}
-		RebrandModConfig config = RebrandClientMod.getInstance().getConfig();
-		if (!config.enable || !config.ghostMode) {
-			return;
-		}
-		info.setReturnValue(null);
-	}
+    @Inject(at = @At("TAIL"), method = "response()Lnet/minecraft/network/packet/c2s/login/LoginQueryResponsePayload;", cancellable = true)
+    private void response(CallbackInfoReturnable<LoginQueryResponsePayload> info) {
+        // default to ghost mode if the mod is not initialized - shouldn't occur!
+        if (RebrandClientMod.getInstance() == null) {
+            info.setReturnValue(null);
+        }
+        RebrandModConfig config = RebrandClientMod.getInstance().getConfig();
+        if (!config.enable || !config.ghostMode) {
+            return;
+        }
+        info.setReturnValue(null);
+    }
 
 }
