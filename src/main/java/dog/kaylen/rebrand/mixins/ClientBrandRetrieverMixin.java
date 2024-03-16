@@ -7,8 +7,6 @@ package dog.kaylen.rebrand.mixins;
 import dog.kaylen.rebrand.RebrandClientMod;
 import dog.kaylen.rebrand.config.RebrandModConfig;
 import net.minecraft.client.ClientBrandRetriever;
-import net.minecraft.network.packet.c2s.login.LoginQueryResponseC2SPacket;
-import net.minecraft.network.packet.s2c.login.LoginQueryRequestS2CPacket;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -33,5 +31,4 @@ public class ClientBrandRetrieverMixin {
 		}
 		info.setReturnValue(config.brandName);
 	}
-
 }
