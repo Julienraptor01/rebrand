@@ -20,7 +20,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(ClientBrandRetriever.class)
 public class ClientBrandRetrieverMixin {
 	@Inject(at = @At("HEAD"), method = "getClientModName", cancellable = true, remap = false)
-	private static void getConfiguredClientBrand(CallbackInfoReturnable<String> info) {
+	private static void rebrand$getConfiguredClientBrand(CallbackInfoReturnable<String> info) {
 		// prevent npe on client initialization
 		if (RebrandClientMod.getInstance() == null) {
 			info.setReturnValue("fabric");
