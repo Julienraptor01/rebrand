@@ -13,6 +13,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+/**
+ * Prevents the client from sending a response to the server when ghost mode is enabled.
+ */
 @Mixin(LoginQueryResponseC2SPacket.class)
 public class LoginQueryResponseC2SPacketMixin {
 	@Inject(at = @At("TAIL"), method = "getResponse()Lnet/minecraft/network/PacketByteBuf;", cancellable = true)

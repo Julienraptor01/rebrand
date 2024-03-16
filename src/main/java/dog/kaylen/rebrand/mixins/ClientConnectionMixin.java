@@ -1,3 +1,7 @@
+/*
+ * Copyright Julienraptor01 2024
+ * This project is licensed under the GNU GPLv3 license. See the LICENSE file for more information.
+ */
 package dog.kaylen.rebrand.mixins;
 
 import dog.kaylen.rebrand.RebrandClientMod;
@@ -12,6 +16,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+/**
+ * Prevents the client from sending (un)register custom payload packets when ghost mode is enabled.
+ */
 @Mixin(ClientConnection.class)
 public class ClientConnectionMixin {
     @Inject(method = "send(Lnet/minecraft/network/Packet;Lnet/minecraft/network/PacketCallbacks;)V", at = @At("HEAD"), cancellable = true)
